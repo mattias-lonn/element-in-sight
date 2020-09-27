@@ -1,7 +1,9 @@
-export const useScrollPosition = () => {
+exports.useScrollPosition = () => {
   // TODO: Add function
+  return
 }
 
-export const isElementInSight = () => {
+exports.isElementInSight = ({}) => {
   // TODO: Add function
+  return
 }
