@@ -1,0 +1,35 @@
+{
+  "name": "element-in-sight",
+  "version": "0.0.0",
+  "description": "element-in-sight uses preact/react hook to detect scroll event changes and checking if the wanted element(s) is in sight and appending a class to the element if desired.",
+  "main": "src/index.js",
+  "homepage": "https://github.com/mattias-lonn/element-in-sight#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattias-lonn/element-in-sight.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mattias-lonn/element-in-sight/issues"
+  },
+  "keywords": [
+    "preact",
+    "react",
+    "hooks",
+    "preact-hooks",
+    "react-hooks",
+    "scroll",
+    "scroll-position",
+    "scroll-event-listener",
+    "dom-listener",
+    "element-in-view",
+    "element-in-sight",
+    "element-within-view",
+    "element-within-sight"
+  ],
+  "peerDependencies": {
+    "react": "*",
+    "preact": "*"
+  },
+  "author": "mattias-lonn",
+  "license": "MIT"
+}
