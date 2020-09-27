@@ -62,7 +62,7 @@ describe('isElementInSight', () => {
   })
 
   test('Returns true after adding class \'inSight\'.', () => {
-    document.getElementsByClassName('helloWorld')[0].classList = 'helloWorld inSight'
+    document.getElementsByClassName('helloWorld')[0].classList = 'helloWorld'
     isElementInSight({ testDocument: document, y: 128, class: '.helloWorld', offset: 0, add: 'inSight' })
     expect(document.getElementsByClassName('helloWorld')[0].classList.contains('inSight')).toBe(true)
   })

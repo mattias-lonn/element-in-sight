@@ -33,9 +33,12 @@
     "jest": "^26.4.2"
   },
   "peerDependencies": {
-    "react": "*",
     "preact": "*"
   },
   "author": "mattias-lonn",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "preact": "^10.5.2",
+    "react": "^16.13.1"
+  }
 }
