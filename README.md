@@ -15,12 +15,21 @@ isElementInSight({ y, key, id, ref, class, skipEl, offset, repeatedly, addParent
 useScrollPosition(effect, dependencies, wait)
 ```
 
+### Preact / React integration
+```js
+// Preact integration.
+import { isElementInSight, useScrollPosition } from 'element-in-sight/preact'
+
+// React integration.
+import { isElementInSight, useScrollPosition } from 'element-in-sight/react'
+```
+
 ## Example
 
 **Add inSight class to element**
 
 ```js
-import { isElementInSight, useScrollPosition } from 'element-in-sight'
+import { isElementInSight, useScrollPosition } from 'element-in-sight/**(preact/react)**'
 
 useScrollPosition(({ position }) => {
   const p = {
@@ -50,7 +59,7 @@ useScrollPosition(({ position }) => {
 **Call another function when in sight and skip the element on done**
 
 ```js
-import { isElementInSight, useScrollPosition } from 'element-in-sight'
+import { isElementInSight, useScrollPosition } from 'element-in-sight/**(preact/react)**'
 import { useState } from 'preact/hooks' // react
 
 const [seenAlert, setSeenAlert] = useState(false)
@@ -73,7 +82,7 @@ useScrollPosition(({ position }) => {
 
 **Bonus: Hide header on scroll**
 ```js
-import { useScrollPosition } from 'element-in-sight'
+import { useScrollPosition } from 'element-in-sight/**(preact/react)**'
 import { useState } from 'preact/hooks' // react
 
 const [hideHeader, setHideHeader] = useState(false)
@@ -86,7 +95,7 @@ useScrollPosition(({ position }) => {
 }, [hideHeader], null, 100) // Debounce with 100ms.
 
 return (
-  <header>
+  <header class={hideHeader && 'hide'}>
     <a href='/'>Element In Sign</a>
   </header>
 )

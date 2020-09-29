@@ -1,4 +1,4 @@
-/* global useLayoutEffect */
+const { useLayoutEffect } = require('react')
 
 const getScrollPosition = () => {
   try {

@@ -1,4 +1,4 @@
-/* global useLayoutEffect */
+const { useLayoutEffect } = require('preact/hooks')
 
 const getScrollPosition = () => {
   try {
