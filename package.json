@@ -1,6 +1,6 @@
 {
   "name": "within-view",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "within-view uses preact/react hook to detect scroll event changes and checking if the wanted element(s) is within view and appending a class to the element if desired.",
   "author": "mattias-lonn",
   "license": "MIT",

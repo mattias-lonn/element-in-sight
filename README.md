@@ -4,7 +4,7 @@
 
 ### Install
 ```sh
-npm i git+https://github.com/mattias-lonn/within-view.git
+npm i within-view
 ```
 
 ### Usage
@@ -80,7 +80,21 @@ useScrollPosition(({ position }) => {
 }, [inView], 50)
 ```
 
+**Bonus: Scroll direction**
+
+```js
+import { useScrollPosition } from 'within-view/**(preact/react)**'
+import { useState } from 'preact/hooks' // react
+
+const [seenAlert, setSeenAlert] = useState(false)
+
+useScrollPosition(({ direction }) => {
+  console.log(`I'am scrolling ${direction}`) // down/up
+}, [])
+```
+
 **Bonus: Hide header on scroll**
+
 ```js
 import { useScrollPosition } from 'within-view/**(preact/react)**'
 import { useState } from 'preact/hooks' // react
@@ -96,7 +110,7 @@ useScrollPosition(({ position }) => {
 
 return (
   <header class={hideHeader && 'hide'}>
-    <a href='/'>Element In Sign</a>
+    <a href='/'>Within View</a>
   </header>
 )
 ```

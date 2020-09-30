@@ -4,7 +4,7 @@ const { isWithinView } = require('./within-view')
 const htmlData = `<html>
   <body style="padding: 0; margin: 0;">
     <header id="header" style="height: 50px; background: green;" data-offsetTop="0" data-innerheight="500">
-      <a href='/'>Element In Sign</a>
+      <a href='/'>Within View</a>
     </header>
     <div class="heroHeader" style="height: calc(100vh - 50px); background: grey;" data-offsetTop="50" data-innerheight="500"></div>
     <div class="ADS" style="height: 120px; background: orange;" data-offsetTop="500" data-innerheight="500"></div>
