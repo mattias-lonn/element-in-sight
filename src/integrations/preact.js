@@ -12,12 +12,15 @@ const getScrollPosition = () => {
 let hasScrollListener = false
 
 exports.useScrollPosition = (effect, dependencies, wait) => {
-  let waitTimeout
+  let waitTimeout, prevPosition = 0
 
   const callBack = () => {
     const position = getScrollPosition()
-    effect({ position })
+    const direction = prevPosition.y > position.y ? 'up' : 'down'
+
+    effect({ position, direction })
     waitTimeout = null
+    prevPosition = position
   }
 
   useLayoutEffect(() => {
