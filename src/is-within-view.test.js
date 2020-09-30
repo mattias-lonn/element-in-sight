@@ -37,22 +37,27 @@ describe('isWithinView', () => {
   })
 
   test('Returns false as the \'.helloWorld\' element is not within view yet.', () => {
-    expect(isWithinView({ testDocument: document, y: 0, class: '.helloWorld', offset: 0 }))
+    expect(isWithinView({ testDocument: document, y: 0, class: 'helloWorld', offset: 0 }))
       .toBeFalsy()
   })
 
   test('Returns true as the \'.helloWorld\' element is within view.', () => {
-    expect(isWithinView({ testDocument: document, y: 128, class: '.helloWorld', offset: 0 }))
+    expect(isWithinView({ testDocument: document, y: 128, class: 'helloWorld', offset: 0 }))
       .toBeTruthy()
   })
 
   test('Returns false as the \'.helloWorld\' element is not yet within view because of offset.', () => {
-    expect(isWithinView({ testDocument: document, y: 128, class: '.helloWorld', offset: 20 }))
+    expect(isWithinView({ testDocument: document, y: 128, class: 'helloWorld', offset: 20 }))
       .toBeFalsy()
   })
 
   test('Returns true as the \'#footer\' element is within view.', () => {
     expect(isWithinView({ testDocument: document, y: 283, id: 'footer', offset: 0 }))
+      .toBeTruthy()
+  })
+
+  test('Returns true as the \'.helloWorld\' element query is within view.', () => {
+    expect(isWithinView({ testDocument: document, y: 283, query: '.helloWorld', offset: 0 }))
       .toBeTruthy()
   })
 
@@ -63,13 +68,13 @@ describe('isWithinView', () => {
 
   test('Returns true after adding class \'inView\'.', () => {
     document.getElementsByClassName('helloWorld')[0].classList = 'helloWorld'
-    isWithinView({ testDocument: document, y: 128, class: '.helloWorld', offset: 0, add: 'inView' })
+    isWithinView({ testDocument: document, y: 128, class: 'helloWorld', offset: 0, add: 'inView' })
     expect(document.getElementsByClassName('helloWorld')[0].classList.contains('inView')).toBe(true)
   })
 
   test('Returns false after removing class \'inView\'.', () => {
     document.getElementsByClassName('helloWorld')[0].classList = 'helloWorld inView'
-    isWithinView({ testDocument: document, y: 10, class: '.helloWorld', offset: 0, add: 'inView' })
+    isWithinView({ testDocument: document, y: 10, class: 'helloWorld', offset: 0, add: 'inView' })
     expect(document.getElementsByClassName('helloWorld')[0].classList.contains('inView')).toBe(false)
   })
 })

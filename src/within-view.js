@@ -12,7 +12,7 @@ const getScrollPosition = () => {
 let hasScrollListener = false
 
 exports.useScrollPosition = (effect, dependencies, wait) => {
-  let waitTimeout, prevPosition = 0
+  let waitTimeout; let prevPosition = 0
 
   const callBack = () => {
     const position = getScrollPosition()
@@ -47,6 +47,7 @@ exports.isWithinView = ({
   id,
   ref,
   class: elementClass,
+  query,
   skipEl,
   offset = 0,
   repeatedly = true,
@@ -56,14 +57,23 @@ exports.isWithinView = ({
   testDocument,
   cb
 }) => {
-  if (skipEl || (!id && !elementClass && typeof ref === 'undefined')) return
+  if (skipEl || (!id && !query && !elementClass && typeof ref === 'undefined')) return
 
   try {
-    const idOrClass = id || elementClass
-    const element = (ref && ref.current) || (testDocument || document).querySelector(idOrClass)
+    let element = null
+
+    if (ref && ref.current) {
+      element = ref.current
+    } else if (id) {
+      element = (testDocument || document).getElementById(id)
+    } else if (elementClass) {
+      element = (testDocument || document).getElementsByClassName(elementClass)[0]
+    } else if (query) {
+      element = (testDocument || document).querySelector(query)
+    }
 
     if (!element) {
-      const msg = typeof ref !== 'undefined' ? 'Element using ref' : `Element '${id || elementClass}'`
+      const msg = typeof ref !== 'undefined' ? 'Element using ref' : `Element '${id || elementClass || query}'`
       return console.error(`isWithinView err: ${msg} was not found.`)
     }
 

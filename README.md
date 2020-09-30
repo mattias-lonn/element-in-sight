@@ -37,13 +37,14 @@ useScrollPosition(({ position }) => {
     add: 'inView' // Adds class 'inView' when within view.
   }
 
-  // Can be done with either element id, class or ref,
-  isWithinView({ ...p, id: `#helloWorld` })
-  isWithinView({ ...p, class: `.helloWorld` })
+  // Can be done with either element id, class, query or ref,
+  isWithinView({ ...p, id: `helloWorld` })
+  isWithinView({ ...p, class: `helloWorld` })
+  isWithinView({ ...p, query: `.helloWorld` })
   isWithinView({ ...p, ref: helloWorlRef })
 
   // Nested classes/ids.
-  isWithinView({ ...p, class: `.helloWorld .inner #first` })
+  isWithinView({ ...p, query: `.helloWorld .inner #first` })
 
   // By setting repeatedly as false the class will only be added once.
   isWithinView({ ...p, repeatedly: false })
@@ -69,7 +70,7 @@ useScrollPosition(({ position }) => {
   isWithinView({
     y: position.y,
     skipEl: seenAlert,
-    class: `.scheduleDemo`,
+    class: `scheduleDemo`,
     offset: 120,
     skipCb: seenAlert,
     cb: () => {
