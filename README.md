@@ -1,15 +1,15 @@
-# element-in-sight
+# within-view
 
-> element-in-sight uses preact/react hook to detect scroll event changes and checking if the wanted element(s) is in sight and appending a class to the element if desired.
+> within-view uses preact/react hook to detect scroll event changes and checking if the wanted element(s) is within view and appending a class to the element if desired.
 
 ### Install
 ```sh
-npm i git+https://github.com/mattias-lonn/element-in-sight.git
+npm i git+https://github.com/mattias-lonn/within-view.git
 ```
 
 ### Usage
 ```js
-isElementInSight({ y, key, id, ref, class, skipEl, offset, repeatedly, addParentOffset, add, skipCb, cb })
+isWithinView({ y, key, id, ref, class, skipEl, offset, repeatedly, addParentOffset, add, skipCb, cb })
 ```
 ```js
 useScrollPosition(effect, dependencies, wait)
@@ -18,55 +18,55 @@ useScrollPosition(effect, dependencies, wait)
 ### Preact / React integration
 ```js
 // Preact integration.
-import { isElementInSight, useScrollPosition } from 'element-in-sight/preact'
+import { isWithinView, useScrollPosition } from 'within-view/preact'
 
 // React integration.
-import { isElementInSight, useScrollPosition } from 'element-in-sight/react'
+import { isWithinView, useScrollPosition } from 'within-view/react'
 ```
 
 ## Example
 
-**Add inSight class to element**
+**Add inView class to element**
 
 ```js
-import { isElementInSight, useScrollPosition } from 'element-in-sight/**(preact/react)**'
+import { isWithinView, useScrollPosition } from 'within-view/**(preact/react)**'
 
 useScrollPosition(({ position }) => {
   const p = {
     y: position.y, // Current scroll position.
-    add: 'inSight' // Adds class 'inSight' when in sight.
+    add: 'inView' // Adds class 'inView' when within view.
   }
 
   // Can be done with either element id, class or ref,
-  isElementInSight({ ...p, id: `#helloWorld` })
-  isElementInSight({ ...p, class: `.helloWorld` })
-  isElementInSight({ ...p, ref: helloWorlRef })
+  isWithinView({ ...p, id: `#helloWorld` })
+  isWithinView({ ...p, class: `.helloWorld` })
+  isWithinView({ ...p, ref: helloWorlRef })
 
   // Nested classes/ids.
-  isElementInSight({ ...p, class: `.helloWorld .inner #first` })
+  isWithinView({ ...p, class: `.helloWorld .inner #first` })
 
   // By setting repeatedly as false the class will only be added once.
-  isElementInSight({ ...p, repeatedly: false })
+  isWithinView({ ...p, repeatedly: false })
 
   // To get the element position and the parent, set addParentOffset to true.
-  isElementInSight({ ...p, addParentOffset: true })
+  isWithinView({ ...p, addParentOffset: true })
 
   // By setting skipEl to true the element will be skipped.
-  isElementInSight({ ...p, skipEl: true})
+  isWithinView({ ...p, skipEl: true})
 }, [], 50) // [dependencies], wait timeout.
 ```
 
-**Call another function when in sight and skip the element on done**
+**Call another function when within view and skip the element on done**
 
 ```js
-import { isElementInSight, useScrollPosition } from 'element-in-sight/**(preact/react)**'
+import { isWithinView, useScrollPosition } from 'within-view/**(preact/react)**'
 import { useState } from 'preact/hooks' // react
 
 const [seenAlert, setSeenAlert] = useState(false)
 
 useScrollPosition(({ position }) => {
-  const p = { y: position.y, add: 'inSight' }
-  isElementInSight({
+  const p = { y: position.y, add: 'inView' }
+  isWithinView({
     y: position.y,
     skipEl: seenAlert,
     class: `.scheduleDemo`,
@@ -77,12 +77,12 @@ useScrollPosition(({ position }) => {
       alert('Dont miss out!')
     }
   })
-}, [inSight], 50)
+}, [inView], 50)
 ```
 
 **Bonus: Hide header on scroll**
 ```js
-import { useScrollPosition } from 'element-in-sight/**(preact/react)**'
+import { useScrollPosition } from 'within-view/**(preact/react)**'
 import { useState } from 'preact/hooks' // react
 
 const [hideHeader, setHideHeader] = useState(false)
@@ -92,7 +92,7 @@ useScrollPosition(({ position }) => {
   if (headerShouldBeHidden !== hideHeader) {
     setHideHeader(headerShouldBeHidden)
   }
-}, [hideHeader], null, 100) // Debounce with 100ms.
+}, [hideHeader], null, 100) // wait 100ms.
 
 return (
   <header class={hideHeader && 'hide'}>

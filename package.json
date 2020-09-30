@@ -1,7 +1,7 @@
 {
-  "name": "element-in-sight",
+  "name": "within-view",
   "version": "0.0.0",
-  "description": "element-in-sight uses preact/react hook to detect scroll event changes and checking if the wanted element(s) is in sight and appending a class to the element if desired.",
+  "description": "within-view uses preact/react hook to detect scroll event changes and checking if the wanted element(s) is within view and appending a class to the element if desired.",
   "author": "mattias-lonn",
   "license": "MIT",
   "main": "src/index.js",
@@ -9,13 +9,13 @@
     "test": "jest",
     "build": "jest && node ./src/build-integrations && microbundle src/integrations/*.js -o x.js -f cjs --external react,preact"
   },
-  "homepage": "https://github.com/mattias-lonn/element-in-sight#readme",
+  "homepage": "https://github.com/mattias-lonn/within-view#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattias-lonn/element-in-sight.git"
+    "url": "git+https://github.com/mattias-lonn/within-view.git"
   },
   "bugs": {
-    "url": "https://github.com/mattias-lonn/element-in-sight/issues"
+    "url": "https://github.com/mattias-lonn/within-view/issues"
   },
   "keywords": [
     "preact",
@@ -25,10 +25,13 @@
     "react-hooks",
     "scroll",
     "scroll-position",
+    "scroll-direction",
     "scroll-event-listener",
     "dom-listener",
     "element-in-view",
     "element-in-sight",
+    "within-view",
+    "within-sight",
     "element-within-view",
     "element-within-sight"
   ],

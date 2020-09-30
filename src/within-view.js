@@ -41,7 +41,7 @@ exports.useScrollPosition = (effect, dependencies, wait) => {
   }, dependencies)
 }
 
-exports.isElementInSight = ({
+exports.isWithinView = ({
   y = 0,
   key,
   id,
@@ -64,7 +64,7 @@ exports.isElementInSight = ({
 
     if (!element) {
       const msg = typeof ref !== 'undefined' ? 'Element using ref' : `Element '${id || elementClass}'`
-      return console.error(`isElementInSight err: ${msg} was not found.`)
+      return console.error(`isWithinView err: ${msg} was not found.`)
     }
 
     if (addParentOffset) {
@@ -84,7 +84,7 @@ exports.isElementInSight = ({
       return false
     }
   } catch (err) {
-    console.error('isElementInSight err:', err.message)
+    console.error('isWithinView err:', err.message)
     return false
   }
 }

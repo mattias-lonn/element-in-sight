@@ -1,7 +1,7 @@
-const { isElementInSight } = require('./element-in-sight')
+const { isWithinView } = require('./within-view')
 
-exports.isElementInSight = (props) => isElementInSight(props)
+exports.isWithinView = (props) => isWithinView(props)
 
 exports.useScrollPosition = () => {
-  console.error('useScrollPosition uses hooks, please specify which integration you\'re using. See https://github.com/mattias-lonn/element-in-sight/blob/master/README.md#preact--react-integration')
+  console.error('useScrollPosition uses hooks, please specify which integration you\'re using. See https://github.com/mattias-lonn/within-view/blob/master/README.md#preact--react-integration')
 }
